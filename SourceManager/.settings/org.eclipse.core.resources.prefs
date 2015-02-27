@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//WebRoot/Course/Course_Home.jsp=UTF-8
+encoding//WebRoot/Course/Course_Manage.jsp=UTF-8
+encoding//WebRoot/Search/Search_Home.jsp=UTF-8
+encoding//WebRoot/index.jsp=UTF-8
+encoding//src/Servlet/CourseUpdateServlet.java=UTF-8
+encoding//src/util/DBConnection.java=UTF-8

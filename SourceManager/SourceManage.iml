@@ -1,0 +1,109 @@
+Manifest-Version: 1.0
+Export-Package: com.genuitec.eclipse.core,com.genuitec.eclipse.core.gs
+ dc,com.genuitec.eclipse.core.ui.action,com.genuitec.eclipse.core.ui.p
+ reference,com.genuitec.eclipse.core.ui.wizard
+Bundle-ClassPath: .
+Bundle-Name: %pluginName
+Bundle-Localization: plugin
+Bundle-NativeCode: /lib/storage32.dll; osname=Win32; processor=x86, *
+Require-Bundle: org.eclipse.core.runtime.compatibility;visibility:=ree
+ xport,org.eclipse.ui.forms,com.genuitec.eclipse.core.common.platform;
+ visibility:=reexport,com.genuitec.eclipse.jniwrapper,org.apache.commo
+ ns.codec;bundle-version="1.3.0";visibility:=reexport,org.eclipse.jsch
+ .core;bundle-version="1.1.200",com.jcraft.jsch;bundle-version="0.1.41
+ ",org.eclipse.core.net;bundle-version="1.2.100"
+Plugin-Class: com.genuitec.eclipse.core.ViperCore
+Bundle-Vendor: %providerName
+Eclipse-LazyStart: true
+Bundle-Version: 12.0.0.me201311281640
+Bundle-ManifestVersion: 2
+Bundle-Activator: org.eclipse.core.internal.compatibility.PluginActiva
+ tor
+Bundle-SymbolicName: com.genuitec.eclipse.core; singleton:=true
+
+Name: com/genuitec/eclipse/core/gsdc/SecureActivationReader$A.class
+SHA1-Digest: AubAaQkurer2+un11/VozYKupS4=
+
+Name: com/genuitec/eclipse/core/activation/SystemId$InvalidLicenseData
+ Exception.class
+SHA1-Digest: 8ZeejHRhPE/wHc2YiMOQA5qva88=
+
+Name: com/genuitec/eclipse/core/ui/wizard/ManualActivationWizardPage$2
+ .class
+SHA1-Digest: /oCPHg0BecjsDHjd0VzmTPFjyK0=
+
+Name: com/genuitec/eclipse/core/ui/wizard/ManualActivationWizardPage$1
+ .class
+SHA1-Digest: bUwIUOQyA6O53T4P9jRPKk+bDMo=
+
+Name: com/genuitec/eclipse/core/ui/wizard/ManualActivationWizardPage.c
+ lass
+SHA1-Digest: 3zO/xQ6ojr895ALBR7tcRst8jP8=
+
+Name: com/genuitec/eclipse/core/ViperCore.class
+SHA1-Digest: F8WgPo+mnkSsJp8td+WxmaGsBbA=
+
+Name: com/genuitec/eclipse/core/ui/wizard/UpdateLicenseWizard.class
+SHA1-Digest: sqSDQKEwEZlfYlgZitx+ReosH6s=
+
+Name: com/genuitec/eclipse/core/C$2.class
+SHA1-Digest: 3rqJvFC5KPzxDlZa9gKOAI9eSZo=
+
+Name: about.blue.mappings
+SHA1-Digest: ckNTuzKjxgpAWcwRAryYbw2kAbk=
+
+Name: com/genuitec/eclipse/core/C$1.class
+SHA1-Digest: 4JS2SwIltsttm7K2xtKNNFtVcag=
+
+Name: com/genuitec/eclipse/core/LicenseWarningDialog$1.class
+SHA1-Digest: FyLI1GzUCmpqRvDMwWIHuvp9vRM=
+
+Name: com/genuitec/eclipse/core/A.class
+SHA1-Digest: yLMjVsvm6Kb3c3hCnuq1a97k7lw=
+
+Name: com/genuitec/eclipse/core/ui/preference/MyEclipsePreferencePage.
+ class
+SHA1-Digest: ohZkMOW76e+IgrBky9GxspE1Lq4=
+
+Name: com/genuitec/eclipse/core/TerminateDialog$2.class
+SHA1-Digest: lX9nfFgjKHxWDyNQbe75+riIsC8=
+
+Name: com/genuitec/eclipse/core/ui/preference/LicenseDetailsPreference
+ Page$1.class
+SHA1-Digest: vN/NnvenF2cLDJk5kewV6Q+96IU=
+
+Name: com/genuitec/eclipse/core/Storage.class
+SHA1-Digest: b1BZokRkYvaKokHRb2pTEx+XnkE=
+
+Name: com/genuitec/eclipse/core/publicKey.bytes
+SHA1-Digest: uP7nbaHx9N3xQ6HH6ZOSsgPGEIg=
+
+Name: com/genuitec/eclipse/core/ui/wizard/TransRegisterDialog.class
+SHA1-Digest: 3jIDooWOe4OMD09Yh2iZuRdKPfk=
+
+Name: com/genuitec/eclipse/core/ui/wizard/CodeEntryActivationWizardPag
+ e$3.class
+SHA1-Digest: RMIfWd8D8eMnX8m9PUiwLWsml7k=
+
+Name: com/genuitec/eclipse/core/ActivationCodeDecryptor.class
+SHA1-Digest: PvwIGVHJe7VV42s/a7zMK2c58jI=
+
+Name: lib/storage32.dll
+SHA1-Digest: EKkwFD4zQoFylzeYJk02419cAMo=
+
+Name: com/genuitec/eclipse/core/MyEclipse.class
+SHA1-Digest: DCzLPUPOVO2EUkjs0cBI49Neams=
+
+Name: com/genuitec/eclipse/core/gsdc/GSDCController.class
+SHA1-Digest: g2eRHypmqsOPyAtiBCHhe6iEItw=
+
+Name: com/genuitec/eclipse/core/ui/wizard/UpdateLicenseWizardPage.clas
+ s
+SHA1-Digest: 9CDLZpmVdoSmNBnXYQS0wdoTdDk=
+
+Name: com/genuitec/eclipse/core/MobiOneLicenseWarningDialog.class
+SHA1-Digest: r5RXyhxhZaugj2XAElv+K/UuVQM=
+
+Name: com/genuitec/eclipse/core/util/Base58ManualActivationEncoder.cla
+ ss
+SHA1-Digest: +2yN+Kr
