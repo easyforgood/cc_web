@@ -211,6 +211,44 @@ public class Px_CourseDAOImpl implements Px_CourseDAO{
 		}
 		return list;
 	}
+
+	/* 
+	
+	* <p>Title: queryById</p> 
+	
+	* <p>Description: </p> 
+	
+	* @param id
+	* @return 
+	
+	* @see Dao.Px_CourseDAO#queryById(java.lang.Long) 
+	
+	*/ 
+	@Override
+	public List<Px_Course> queryById(Long id) {
+		// TODO Auto-generated method stub
+		dao=new MySQLDAO();
+		List<Px_Course> list = null;
+		try {
+			Statement stmt=dao.openConnection().createStatement();
+			ResultSet rs=stmt.executeQuery("select * from Course where course_id ="+id);
+			list=new LinkedList<Px_Course>();
+			while(rs.next()){
+				Px_Course course=new Px_Course();
+				course.setCourse_id(rs.getLong("Course_Id"));
+				course.setCourse_jieshu(rs.getString("Course_Jieshu"));
+				course.setCourse_name(rs.getString("Course_Name"));
+				course.setCourse_term(rs.getString("Course_Term"));
+				course.setCourse_week(rs.getString("Course_Week"));
+				course.setCourse_info(rs.getString("Course_Info"));
+				list.add(course);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
 	
 
 

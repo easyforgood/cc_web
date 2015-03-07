@@ -25,4 +25,5 @@ public interface Px_CourseDAO {
 	public boolean removeCourse(Long course_id);
 	public boolean updateCourse(Px_Course course);
 	public List<Px_Course> queryAll() ;
+	public List<Px_Course> queryById(Long id);
 }

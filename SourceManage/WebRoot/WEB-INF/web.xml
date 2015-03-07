@@ -93,6 +93,27 @@
     <servlet-name>testAjax</servlet-name>
     <servlet-class>Servlet.testAjax</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Px_UserCourseServlet</servlet-name>
+    <servlet-class>Servlet.Px_UserCourseServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Px_UserServlet</servlet-name>
+    <servlet-class>Servlet.Px_UserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Px_UserAddServlet</servlet-name>
+    <servlet-class>Servlet.Px_UserAddServlet</servlet-class>
+  </servlet>
+
+
+
 
 
 
@@ -166,6 +187,18 @@
   <servlet-mapping>
     <servlet-name>testAjax</servlet-name>
     <url-pattern>/servlet/testAjax</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Px_UserCourseServlet</servlet-name>
+    <url-pattern>/px/Px_UserCourseServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Px_UserServlet</servlet-name>
+    <url-pattern>/px/Px_UserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Px_UserAddServlet</servlet-name>
+    <url-pattern>/px/Px_UserAddServlet</url-pattern>
   </servlet-mapping>
 
 

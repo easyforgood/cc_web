@@ -1,9 +1,9 @@
 /**    
-* @Title: Px_CourseServlet.java  
+* @Title: Px_UserCourseServlet.java  
 * @Package Servlet  
 * @Description: TODO(用一句话描述该文件做什么)  
 * @author Siplexy easyforgood@hotmail.com   
-* @date 2015年1月7日 下午5:20:27  
+* @date 2015年3月1日 下午10:51:33  
 * @version V1.0    
 */
 package Servlet;
@@ -11,9 +11,9 @@ package Servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLDecoder;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Map;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.LinkedList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,23 +22,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import DAOImpl.Px_CourseDAOImpl;
-import Dao.Px_CourseDAO;
+import DAOImpl.Px_UserCourseDAOImpl;
 import Model.Px_Course;
+import Model.Px_UserCourse;
 
 /**  
- * @ClassName: Px_CourseServlet  
+ * @ClassName: Px_UserCourseServlet  
  * @Description: TODO(todowhat)  
  * @author Siplexy easyforgood@hotmail.com
- * @date 2015年1月7日 下午5:20:27  
+ * @date 2015年3月1日 下午10:51:33  
  *    
  */
-public class Px_CourseServlet extends HttpServlet {
+public class Px_UserCourseServlet extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public Px_CourseServlet() {
+	public Px_UserCourseServlet() {
 		super();
 	}
 
@@ -62,78 +62,51 @@ public class Px_CourseServlet extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		request.setCharacterEncoding("UTF-8"); 
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		String cmd=request.getParameter("c");
 		JSONObject json=new JSONObject();
-		System.out.println("////////////cmd is "+cmd);
-		Px_CourseDAO dao=new Px_CourseDAOImpl();
+		Px_UserCourseDAOImpl dao=new Px_UserCourseDAOImpl();
 		if(cmd!=null){
 			//查询
 			if(cmd.equals("q")){
-				List<Px_Course> list=dao.queryAll();
-				JSONArray array=JSONArray.fromObject(list);
-				json.put("sEcho", list.size());
-				json.put("iTotalRecords",list.size());
-				json.put("iTotalDisplayRecords",list.size());
-				json.put("aaData",array);
-				System.out.println("p");
+					ResultSet rs=dao.queryAll();
+					int rowcount=0;
+					LinkedList<Px_UserCourse> list=new LinkedList<Px_UserCourse>();
+					try {
+						while(rs.next()){
+							Px_UserCourse uc =new Px_UserCourse();
+							uc.setCourse_id(rs.getLong("course_id"));
+							uc.setUser_email(rs.getString("user_email"));
+							list.add(uc);
+							rowcount++;
+					}
+					JSONArray array=JSONArray.fromObject(list);
+					System.out.println(rowcount);
+					json.put("sEcho", rowcount);
+					json.put("iTotalRecords",rowcount);
+					json.put("iTotalDisplayRecords",rowcount);
+					json.put("aaData",array);
+					System.out.println("p");
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			//update 更新
-			else if(cmd.equals("u")){
-				String aaData=request.getParameter("aData");
+			else if(cmd.equals("t")){
 				String course_id=request.getParameter("course_id");
-				String course_name=request.getParameter("course_name");
-				String course_week=request.getParameter("course_week");
-				String course_jieshu=request.getParameter("course_jieshu");
-				String course_term=request.getParameter("course_term");
-				String course_info=request.getParameter("course_info");
-				course_name=URLDecoder.decode(course_name, "utf-8");
-				Px_Course course=new Px_Course();
-				course.setCourse_info(course_info);
-				course.setCourse_jieshu(course_jieshu);
-				course.setCourse_name(course_name);
-				course.setCourse_term(course_term);
-				course.setCourse_week(course_week);
-				//course_id 为空 insert
-				if(course_id.equals("")){
-					dao.saveCourse(course);
-				}
-				//course_id 不为空update
-				else{
-					course.setCourse_id(Long.parseLong(course_id));
-					System.out.print(course_id+"\n"+course_info+"\n"+course_name);
-						
-					boolean result=dao.updateCourse(course);
-					if(result){
-						System.out.println("Update Success");
-					}
-					else 
-						System.out.println("Update failed");
-				}
+				String user_email=request.getParameter("user_email");
+				Px_UserCourse uc =new Px_UserCourse();
+				uc.setCourse_id(Long.parseLong(course_id));
+				uc.setUser_email(user_email);
+				dao.insert(uc);
 			}
 			else if(cmd.equals("d")){
-				String course_id=request.getParameter("course_id");
-				if(course_id.equals("")){
-					System.out.println("wrong");
-				}
-				else{
-					dao.removeCourse(Long.parseLong(course_id));
-				}
-			}else if(cmd.equals("t")){
-				String course_id=request.getParameter("course_id");
-				if(course_id.equals("")){
-					
-				}else{
-					List<Px_Course> list=dao.queryById(Long.parseLong(course_id));
-					JSONArray array=JSONArray.fromObject(list);
-					json.put("sEcho", list.size());
-					json.put("iTotalRecords",list.size());
-					json.put("iTotalDisplayRecords",list.size());
-					json.put("aaData",array);
-				}
+				
 			}
 		}
 		System.out.println("Hello!");                      
@@ -155,7 +128,7 @@ public class Px_CourseServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		doGet(request, response);
+		doGet(request,response);
 	}
 
 	/**
