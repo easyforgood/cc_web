@@ -1,68 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
-	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-	<display-name></display-name>
-
-
-
-	<!-- Source Upload Part -->
-	<servlet>
-		<description>This is the description of my J2EE component</description>
-		<display-name>This is the display name of my J2EE component</display-name>
-		<servlet-name>SourceUploadServlet</servlet-name>
-		<servlet-class>Servlet.SourceUploadServlet</servlet-class>
-	</servlet>
-
-	<!-- Source Search Part -->
-	<servlet>
-		<description>This is the description of my J2EE component</description>
-		<display-name>This is the display name of my J2EE component</display-name>
-		<servlet-name>SourceSearchServlet</servlet-name>
-		<servlet-class>Servlet.SourceSearchServlet</servlet-class>
-	</servlet>
-
-	<!-- Source Delete Part -->
-	<servlet>
-		<description>This is the description of my J2EE component</description>
-		<display-name>This is the display name of my J2EE component</display-name>
-		<servlet-name>CourseDeleteServlet</servlet-name>
-		<servlet-class>Servlet.CourseDeleteServlet</servlet-class>
-	</servlet>
-
-
-	<!-- Course Manage Part -->
-	<servlet>
-		<description>This is the description of my J2EE component</description>
-		<display-name>This is the display name of my J2EE component</display-name>
-		<servlet-name>CourseManageServlet</servlet-name>
-		<servlet-class>Servlet.CourseManageServlet</servlet-class>
-	</servlet>
-
-	<!-- Course update Part -->
-	<servlet>
-		<description>This is the description of my J2EE component</description>
-		<display-name>This is the display name of my J2EE component</display-name>
-		<servlet-name>CourseUpdateServlet</servlet-name>
-		<servlet-class>Servlet.CourseUpdateServlet</servlet-class>
-	</servlet>
-
-	<!-- Course File manage Part -->
-	<servlet>
-		<description>This is the description of my J2EE component</description>
-		<display-name>This is the display name of my J2EE component</display-name>
-		<servlet-name>CourseFileManageServlet</servlet-name>
-		<servlet-class>Servlet.CourseFileHomeManageServlet</servlet-class>
-	</servlet>
-
-<!-- File manage Part -->
-	<servlet>
-		<description>This is the description of my J2EE component</description>
-		<display-name>This is the display name of my J2EE component</display-name>
-		<servlet-name>CourseFileManage</servlet-name>
-		<servlet-class>Servlet.CourseFileManageServlet</servlet-class>
-	</servlet>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name></display-name>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SourceUploadServlet</servlet-name>
+    <servlet-class>Servlet.SourceUploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SourceSearchServlet</servlet-name>
+    <servlet-class>Servlet.SourceSearchServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CourseDeleteServlet</servlet-name>
+    <servlet-class>Servlet.CourseDeleteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CourseManageServlet</servlet-name>
+    <servlet-class>Servlet.CourseManageServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CourseUpdateServlet</servlet-name>
+    <servlet-class>Servlet.CourseUpdateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CourseFileManageServlet</servlet-name>
+    <servlet-class>Servlet.CourseFileHomeManageServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CourseFileManage</servlet-name>
+    <servlet-class>Servlet.CourseFileManageServlet</servlet-class>
+  </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
@@ -111,63 +91,42 @@
     <servlet-name>Px_UserAddServlet</servlet-name>
     <servlet-class>Servlet.Px_UserAddServlet</servlet-class>
   </servlet>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<!-- Filter Part -->
-	<filter>
-		<filter-name>log</filter-name>
-		<filter-class>Filter.LogFilter</filter-class>
-	</filter>
-
-	<filter-mapping>
-		<filter-name>log</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
-
-
-
-
-	<servlet-mapping>
-		<servlet-name>SourceUploadServlet</servlet-name>
-		<url-pattern>/servlet/SourceUploadServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>SourceSearchServlet</servlet-name>
-		<url-pattern>/servlet/SourceSearchServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>CourseDeleteServlet</servlet-name>
-		<url-pattern>/servlet/CourseDeleteServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>CourseManageServlet</servlet-name>
-		<url-pattern>/servlet/CourseManageServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>CourseUpdateServlet</servlet-name>
-		<url-pattern>/servlet/CourseUpdateServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>CourseFileManageServlet</servlet-name>
-		<url-pattern>/servlet/CourseFileHomeManageServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>CourseFileManage</servlet-name>
-		<url-pattern>/servlet/CourseFileManageServlet</url-pattern>
-	</servlet-mapping>
+  <filter>
+    <filter-name>log</filter-name>
+    <filter-class>Filter.LogFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>log</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <servlet-mapping>
+    <servlet-name>SourceUploadServlet</servlet-name>
+    <url-pattern>/servlet/SourceUploadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SourceSearchServlet</servlet-name>
+    <url-pattern>/servlet/SourceSearchServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CourseDeleteServlet</servlet-name>
+    <url-pattern>/servlet/CourseDeleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CourseManageServlet</servlet-name>
+    <url-pattern>/servlet/CourseManageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CourseUpdateServlet</servlet-name>
+    <url-pattern>/servlet/CourseUpdateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CourseFileManageServlet</servlet-name>
+    <url-pattern>/servlet/CourseFileHomeManageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CourseFileManage</servlet-name>
+    <url-pattern>/servlet/CourseFileManageServlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>FileDeleteServlet</servlet-name>
     <url-pattern>/servlet/FileDeleteServlet</url-pattern>
@@ -200,10 +159,37 @@
     <servlet-name>Px_UserAddServlet</servlet-name>
     <url-pattern>/px/Px_UserAddServlet</url-pattern>
   </servlet-mapping>
-
-
-
-	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>AddAdminServlet</display-name>
+    <servlet-name>AddAdminServlet</servlet-name>
+    <servlet-class>Servlet.AddAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddAdminServlet</servlet-name>
+    <url-pattern>/AddAdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchAdminServlet</display-name>
+    <servlet-name>SearchAdminServlet</servlet-name>
+    <servlet-class>Servlet.SearchAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchAdminServlet</servlet-name>
+    <url-pattern>/SearchAdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteAdminServlet</display-name>
+    <servlet-name>DeleteAdminServlet</servlet-name>
+    <servlet-class>Servlet.DeleteAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteAdminServlet</servlet-name>
+    <url-pattern>/DeleteAdminServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

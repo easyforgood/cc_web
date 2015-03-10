@@ -45,14 +45,14 @@ public class UploadDao {
 		try {
 			pStatement = conn.prepareStatement(sql);
 			pStatement.setString(1, file.getFile_name());
-			pStatement.setInt(2, file.getFile_Size());
-			pStatement.setString(3, file.getFile_Path());
+			pStatement.setInt(2, file.getFile_size());
+			pStatement.setString(3, file.getFile_path());
 			pStatement.setString(4, file.getFile_DateTime());
-			pStatement.setString(5, file.getFile_Type());
-			pStatement.setString(6, file.getFile_Term_Year());
-			pStatement.setInt(7, file.getFileComment());
+			pStatement.setString(5, file.getFile_type());
+			pStatement.setString(6, file.getFile_term_year());
+			pStatement.setString(7, file.getFilecomment());
 			pStatement.setInt(8, file.getTag());
-			pStatement.setInt(9, file.getCourse_ID());
+			pStatement.setInt(9, file.getCourse_id());
 			pStatement.execute();
 			if (pStatement != null)
 				pStatement.close();
