@@ -1,13 +1,14 @@
 /**    
 * @Title: Px_CourseDAOImpl.java  
 * @Package Impl  
-* @Description: TODO(ÓÃÒ»¾ä»°ÃèÊö¸ÃÎÄ¼þ×öÊ²Ã´)  
+* @Description: TODO(ï¿½ï¿½Ò»ï¿½ä»°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê²Ã´)  
 * @author Siplexy easyforgood@hotmail.com   
-* @date 2015Äê1ÔÂ6ÈÕ ÏÂÎç10:28:05  
+* @date 2015ï¿½ï¿½1ï¿½ï¿½6ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½10:28:05  
 * @version V1.0    
 */
 package DAOImpl;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,22 +16,20 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
-import Dao.DAO;
-import Dao.MySQLDAO;
+import DBAccess.DBAccess;
 import Dao.Px_CourseDAO;
 import Model.Px_Course;
 
 /**  
  * @ClassName: Px_CourseDAOImpl  
- * @Description: TODO(ÕâÀïÓÃÒ»¾ä»°ÃèÊöÕâ¸öÀàµÄ×÷ÓÃ)  
+ * @Description: TODO(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ä»°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)  
  * @author Siplexy easyforgood@hotmail.com
- * @date 2015Äê1ÔÂ6ÈÕ ÏÂÎç10:28:05  
+ * @date 2015ï¿½ï¿½1ï¿½ï¿½6ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½10:28:05  
  *    
  */
 public class Px_CourseDAOImpl implements Px_CourseDAO{
-	DAO dao;
 
-	/* (·Ç Javadoc) 
+	/* (ï¿½ï¿½ Javadoc) 
 	
 	* <p>Title: saveCourse</p> 
 	
@@ -45,10 +44,10 @@ public class Px_CourseDAOImpl implements Px_CourseDAO{
 	@Override
 	public boolean saveCourse(Px_Course course) {
 		// TODO Auto-generated method stub
-		dao=new MySQLDAO();
+		Connection conn=DBAccess.getConnection();
 		
 		try {
-			PreparedStatement stmt=dao.openConnection().prepareStatement("insert into Course(course_name,course_term,course_info,course_jieshu,course_week) values(?,?,?,?,?)");
+			PreparedStatement stmt=conn.prepareStatement("insert into Course(course_name,course_term,course_info,course_jieshu,course_week) values(?,?,?,?,?)");
 			stmt.setString(1, course.getCourse_name());
 			stmt.setString(2, course.getCourse_term());
 			stmt.setString(3, course.getCourse_info());
@@ -56,7 +55,7 @@ public class Px_CourseDAOImpl implements Px_CourseDAO{
 			stmt.setString(5, course.getCourse_week());
 			stmt.execute();
 			stmt.close();
-			dao.openConnection().close();
+			DBAccess.closeConnection(conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,7 +64,7 @@ public class Px_CourseDAOImpl implements Px_CourseDAO{
 		return true;
 	}
 
-	/* (·Ç Javadoc) 
+	/* (ï¿½ï¿½ Javadoc) 
 	
 	* <p>Title: queryCourse</p> 
 	
@@ -80,10 +79,10 @@ public class Px_CourseDAOImpl implements Px_CourseDAO{
 	@Override
 	public Px_Course queryCourse(Long course_id) {
 		// TODO Auto-generated method stub
-		dao=new MySQLDAO();
 		Px_Course course=null;
+		Connection conn=DBAccess.getConnection();
 		try {
-			Statement stmt=dao.openConnection().createStatement();
+			Statement stmt=conn.createStatement();
 			ResultSet rs=stmt.executeQuery("select * from Course where Course_Id ="+course_id);
 			course=new Px_Course();
 			if(rs.next()){
@@ -96,7 +95,7 @@ public class Px_CourseDAOImpl implements Px_CourseDAO{
 			}
 			rs.close();
 			stmt.close();
-			dao.openConnection().close();
+			DBAccess.closeConnection(conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -104,7 +103,7 @@ public class Px_CourseDAOImpl implements Px_CourseDAO{
 		return course;
 	}
 
-	/* (·Ç Javadoc) 
+	/* (ï¿½ï¿½ Javadoc) 
 	
 	* <p>Title: removeCourse</p> 
 	
@@ -119,13 +118,12 @@ public class Px_CourseDAOImpl implements Px_CourseDAO{
 	@Override
 	public boolean removeCourse(Long course_id) {
 		// TODO Auto-generated method stub
-	dao=new MySQLDAO();
-		
+		Connection conn=DBAccess.getConnection();
 		try {
-			Statement stmt=dao.openConnection().createStatement();
+			Statement stmt=conn.createStatement();
 			stmt.execute("delete from Course where Course_Id ="+course_id);
 			stmt.close();
-			dao.openConnection().close();
+			DBAccess.closeConnection(conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -135,7 +133,7 @@ public class Px_CourseDAOImpl implements Px_CourseDAO{
 		return true;
 	}
 
-	/* (·Ç Javadoc) 
+	/* (ï¿½ï¿½ Javadoc) 
 	
 	* <p>Title: updateCourse</p> 
 	
@@ -150,10 +148,9 @@ public class Px_CourseDAOImpl implements Px_CourseDAO{
 	@Override
 	public boolean updateCourse(Px_Course course) {
 		// TODO Auto-generated method stub
-		dao=new MySQLDAO();
-		
+		Connection conn=DBAccess.getConnection();
 		try {
-			PreparedStatement stmt=dao.openConnection().prepareStatement("update  Course set Course_Name=?,"
+			PreparedStatement stmt=conn.prepareStatement("update  Course set Course_Name=?,"
 					+ "Course_Term=?,Course_Info=?,Course_Jieshu=?,	Course_Week=?"
 					+ "where Course_Id = ?");
 			//stmt.setLong(0, course.getCourse_id());
@@ -165,7 +162,7 @@ public class Px_CourseDAOImpl implements Px_CourseDAO{
 			stmt.setLong(6, course.getCourse_id());
 			stmt.execute();
 			stmt.close();
-			dao.openConnection().close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -189,10 +186,10 @@ public class Px_CourseDAOImpl implements Px_CourseDAO{
 	@Override
 	public List<Px_Course> queryAll() {
 		// TODO Auto-generated method stub
-		dao=new MySQLDAO();
+		Connection conn=DBAccess.getConnection();
 		List<Px_Course> list = null;
 		try {
-			Statement stmt=dao.openConnection().createStatement();
+			Statement stmt=conn.createStatement();
 			ResultSet rs=stmt.executeQuery("select * from Course");
 			list=new LinkedList<Px_Course>();
 			while(rs.next()){
@@ -205,6 +202,7 @@ public class Px_CourseDAOImpl implements Px_CourseDAO{
 				course.setCourse_info(rs.getString("Course_Info"));
 				list.add(course);
 			}
+			DBAccess.closeConnection(conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -227,10 +225,10 @@ public class Px_CourseDAOImpl implements Px_CourseDAO{
 	@Override
 	public List<Px_Course> queryById(Long id) {
 		// TODO Auto-generated method stub
-		dao=new MySQLDAO();
+		Connection conn=DBAccess.getConnection();
 		List<Px_Course> list = null;
 		try {
-			Statement stmt=dao.openConnection().createStatement();
+			Statement stmt=conn.createStatement();
 			ResultSet rs=stmt.executeQuery("select * from Course where course_id ="+id);
 			list=new LinkedList<Px_Course>();
 			while(rs.next()){
@@ -243,6 +241,7 @@ public class Px_CourseDAOImpl implements Px_CourseDAO{
 				course.setCourse_info(rs.getString("Course_Info"));
 				list.add(course);
 			}
+			DBAccess.closeConnection(conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

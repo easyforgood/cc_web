@@ -1,9 +1,9 @@
 /**    
 * @Title: Px_UserDAOImpl.java  
 * @Package DAOImpl  
-* @Description: TODO(ÓÃÒ»¾ä»°ÃèÊö¸ÃÎÄ¼þ×öÊ²Ã´)  
+* @Description: TODO(ï¿½ï¿½Ò»ï¿½ä»°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê²Ã´)  
 * @author Siplexy easyforgood@hotmail.com   
-* @date 2015Äê3ÔÂ2ÈÕ ÏÂÎç10:09:48  
+* @date 2015ï¿½ï¿½3ï¿½ï¿½2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½10:09:48  
 * @version V1.0    
 */
 package DAOImpl;
@@ -14,8 +14,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import Dao.DAO;
-import Dao.MySQLDAO;
+import DBAccess.DBAccess;
 import Dao.Px_UserDAO;
 import Model.Px_User;
 import Model.Px_UserNickName;
@@ -27,11 +26,10 @@ import com.mysql.jdbc.Statement;
  * @ClassName: Px_UserDAOImpl  
  * @Description: TODO(todowhat)  
  * @author Siplexy easyforgood@hotmail.com
- * @date 2015Äê3ÔÂ2ÈÕ ÏÂÎç10:09:48  
+ * @date 2015ï¿½ï¿½3ï¿½ï¿½2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½10:09:48  
  *    
  */
 public class Px_UserDAOImpl implements Px_UserDAO{
-	DAO dao=new MySQLDAO();
 	
 	/** 
 	
@@ -39,15 +37,15 @@ public class Px_UserDAOImpl implements Px_UserDAO{
 	
 	* @Description: TODO(todowhat) 
 	
-	* @param @return    ²ÎÊý 
+	* @param @return    ï¿½ï¿½ï¿½ï¿½ 
 	
-	* @return ResultSet    ·µ»ØÀàÐÍ 
+	* @return ResultSet    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	
 	* @throws 
 	
 	*/ 
 	public List<Px_User> queryAll(){
-		Connection conn=dao.openConnection();
+		Connection conn=DBAccess.getConnection();
 		List<Px_User> list=null;
 		ResultSet rs =null;
 		String sql="select user_name,user_password,user_email,"
@@ -104,7 +102,7 @@ public class Px_UserDAOImpl implements Px_UserDAO{
 	@Override
 	public boolean update(Px_User user) {
 		// TODO Auto-generated method stub
-		Connection conn=dao.openConnection();
+		Connection conn=DBAccess.getConnection();
 		boolean result=false;
 		String sql="update user,usernickname,userrank set "
 				+ "user.user_email= '"+user.getUser_email()+"',user.user_password='"+user.getUser_password()+"'"
@@ -145,7 +143,7 @@ public class Px_UserDAOImpl implements Px_UserDAO{
 		String rank_insert="insert into userrank(rank_name) values('"+user.getRank().getRank_name()+"')";
 		String user_insert="insert into user(user_name,user_email,user_password) "
 				+ "values('"+user.getUser_name()+"','"+user.getUser_email()+"','"+user.getUser_password()+"')";
-		Connection conn=dao.openConnection();
+		Connection conn=DBAccess.getConnection();
 		try {
 			Statement stmt=(Statement) conn.createStatement();
 			stmt.execute(nick_insert);
@@ -175,7 +173,7 @@ public class Px_UserDAOImpl implements Px_UserDAO{
 		// TODO Auto-generated method stub
 		String sql="delete from user where user_email ='"+user.getUser_email()+"'";
 		boolean result=false;
-		Connection conn=dao.openConnection();
+		Connection conn=DBAccess.getConnection();
 		try {
 			Statement stmt=(Statement) conn.createStatement();
 			result=stmt.execute(sql);

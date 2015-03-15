@@ -62,7 +62,7 @@ public class SourceSearchDao {
 		return course;
 	}
 
-	// µÃµ½ËÑË÷ºóµÄÒ»¸öcourseÁÐ±í
+	// ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½courseï¿½Ð±ï¿½
 	public ArrayList<Course> bynamegetcourselist(String SearchString,
 			Connection conn) {
 		ArrayList<Course> list = new ArrayList<Course>();
@@ -95,12 +95,12 @@ public class SourceSearchDao {
 		return list;
 	}
 
-	// µÃµ½ËÑË÷ºóµÄÒ»¸öfileofcourseÁÐ±í
+	// ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½fileofcourseï¿½Ð±ï¿½
 	public ArrayList<FileOfCourse> bynamegetfilelist(String SearchString,
 			Connection conn) {
 		ArrayList<FileOfCourse> list = new ArrayList<FileOfCourse>();
-		String sql = "SELECT * FROM file ";
-		FileOfCourse file = new FileOfCourse();
+		String sql = "SELECT * FROM File order by File_Id desc";
+		
 		ResultSet rs;
 		
 			PreparedStatement pStatement;
@@ -111,13 +111,13 @@ public class SourceSearchDao {
 			rs = pStatement.executeQuery();
 			while (rs.next()) {
 				if (rs.getInt("file_tag") != 0) {
+					FileOfCourse file=new FileOfCourse();
 					file.setFile_id(rs.getInt("file_id"));
 					file.setFile_name(rs.getString("file_name"));
 					file.setFile_size(rs.getInt("file_size"));
 					file.setFile_path(rs.getString("file_path"));
 					file.setFile_DateTime(rs.getString("file_datetime"));
 					file.setFile_type(rs.getString("file_type"));
-					file.setFile_term_year(rs.getString("file_term_year"));
 					file.setFilecomment(rs.getString("filecomment"));
 					file.setCourse_id(rs.getInt("course_id"));
 					list.add(file);
@@ -132,7 +132,7 @@ public class SourceSearchDao {
 		return list;
 	}
 
-	// µÃµ½Ò»¸öcourse¶ÔÓ¦µÄËùÓÐfile
+	// ï¿½Ãµï¿½Ò»ï¿½ï¿½courseï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½file
 	public ArrayList<FileOfCourse> getFiles(int course_id, Connection conn) {
 		ArrayList<FileOfCourse> list = new ArrayList<FileOfCourse>();
 		String sql = "SELECT * FROM file WHERE Course_ID = " + course_id
@@ -144,11 +144,10 @@ public class SourceSearchDao {
 			rs = pStatement.executeQuery();
 			while (rs.next()) {
 
-				file.setFile_name(rs.getString(2));
-				file.setFile_DateTime(rs.getString(5));
-				file.setFile_term_year(rs.getString(7));
-				file.setFile_id(rs.getInt(1));
-				file.setCourse_id(rs.getInt(10));
+				file.setFile_name(rs.getString("file_name"));
+				file.setFile_DateTime(rs.getString("file_datetime"));
+				file.setFile_id(rs.getInt("file_id"));
+				file.setCourse_id(rs.getInt("course_id"));
 				// System.out.println(rs.getString(1));
 				// System.out.println(file.getFile_name());
 				// System.out.println(file.getFile_DateTime());
@@ -165,7 +164,7 @@ public class SourceSearchDao {
 		return list;
 	}
 
-	// µÃµ½Ò»¸öfileofCourseÎÄ¼þ
+	// ï¿½Ãµï¿½Ò»ï¿½ï¿½fileofCourseï¿½Ä¼ï¿½
 	public FileOfCourse getFile(int file_ID, Connection conn) {
 		FileOfCourse file = new FileOfCourse();
 		String sql = "SELECT * FROM file WHERE File_ID= " + file_ID;
@@ -174,15 +173,14 @@ public class SourceSearchDao {
 			PreparedStatement pStatement = conn.prepareStatement(sql);
 			rs = pStatement.executeQuery();
 			while (rs.next()) {
-				file.setFile_id(rs.getInt(1));
-				file.setFile_name(rs.getString(2));
-				file.setFile_size(rs.getInt(3));
-				file.setFile_path(rs.getString(4));
-				file.setFile_DateTime(rs.getString(5));
-				file.setFile_type(rs.getString(6));
-				file.setFile_term_year(rs.getString(7));
-				file.setFilecomment(rs.getString(8));
-				file.setCourse_id(rs.getInt(10));
+				file.setFile_id(rs.getInt("file_id"));
+				file.setFile_name(rs.getString("file_name"));
+				file.setFile_size(rs.getInt("file_size"));
+				file.setFile_path(rs.getString("file_path"));
+				file.setFile_DateTime(rs.getString("file_datetime"));
+				file.setFile_type(rs.getString("file_type"));
+				file.setFilecomment(rs.getString("filecomment"));
+				file.setCourse_id(rs.getInt("course_id"));
 			}
 			if (pStatement != null)
 				pStatement.close();

@@ -3,7 +3,7 @@ package Service;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import test.mysql.MyConnection;
+import DBAccess.DBAccess;
 import Dao.UploadDao;
 import Model.Course;
 import Model.FileOfCourse;
@@ -15,7 +15,7 @@ public class UploadService {
 	}
 
 	public void UploadFile(FileOfCourse file) {
-		Connection conn = new MyConnection().getCon();
+		Connection conn = DBAccess.getConnection();
 		UploadDao up = new UploadDao();
 		try {
 			up.uploadFile(file, conn);
@@ -28,8 +28,8 @@ public class UploadService {
 	public void UploadCource(Course course) {
 		// System.out.println("connectionÇ°!!!!!!!!!!");
 		// Connection conn = DBConnection.getConnection();
-		Connection conn = new MyConnection().getCon();
-		// System.out.println("connectionºó!!!!!!!!!!");
+		Connection conn = DBAccess.getConnection();
+		// System.out.println("connectionï¿½ï¿½!!!!!!!!!!");
 		UploadDao up = new UploadDao();
 		try {
 			up.uploadCourse(course, conn);

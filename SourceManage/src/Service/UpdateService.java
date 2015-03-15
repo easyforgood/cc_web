@@ -3,7 +3,7 @@ package Service;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import test.mysql.MyConnection;
+import DBAccess.DBAccess;
 import Dao.DeleteSourceDao;
 import Dao.UpdateDao;
 import Dao.UploadDao;
@@ -11,7 +11,7 @@ import Dao.UploadDao;
 public class UpdateService {
 
 	public void updateCourse(int id, String name, String term) {
-		Connection conn = new MyConnection().getCon();
+		Connection conn = DBAccess.getConnection();
 		UpdateDao updateDao = new UpdateDao();
 		try {
 			updateDao.updateCourse(id, name, term, conn);
@@ -22,7 +22,7 @@ public class UpdateService {
 	}
 
 	public void updateFile(int id, String name) {
-		Connection conn = new MyConnection().getCon();
+		Connection conn = DBAccess.getConnection();
 		UpdateDao updateDao = new UpdateDao();
 		try {
 			updateDao.updateFile(id, name, conn);

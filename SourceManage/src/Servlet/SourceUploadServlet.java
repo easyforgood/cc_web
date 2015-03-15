@@ -139,7 +139,7 @@ public class SourceUploadServlet extends HttpServlet {
 		request.setCharacterEncoding("gbk");
 
 		// 存绝对路径
-		String filePath = "D://upload";
+		String filePath = "D:/upload";
 		// 存相对路径
 		/*
 		 * 在apache-tomcat-7.0.57-windows-x86/apache-tomcat-7.0.57/webapps/
@@ -182,15 +182,17 @@ public class SourceUploadServlet extends HttpServlet {
 			file_size = file_size / 1024 / 1024;
 			System.out.println("文件大小" + file_size + "M");
 		}
-
-		String course_name = su.getRequest().getParameter("course_name");
-		String course_term = su.getRequest().getParameter("course_term");
-		String file_term = su.getRequest().getParameter("file_term");
-		System.out.println("course_name:" + course_name);
-		Course course = new Course(course_name, course_term);
-		course.setCourse_Tag(1);
+		
+		
+		
+		
+		//String course_name = su.getRequest().getParameter("course_name");
+		//String course_term = su.getRequest().getParameter("course_term");
+		//System.out.println("course_name:" + course_name);
+		//Course course = new Course(course_name, course_term);
+		//course.setCourse_Tag(1);
 		// 上传日期
-		Date d = new Date();
+		Date d = new Date(); 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String upload_date = sdf.format(d);
 		System.out.println(upload_date);
@@ -199,7 +201,6 @@ public class SourceUploadServlet extends HttpServlet {
 		foc.setFile_name(file.getFileName());
 		foc.setFile_type(file.getFileExt());
 		foc.setFile_path(filePath);
-		foc.setFile_term_year(file_term);
 		foc.setFile_size(file_size);
 		foc.setTag(1);
 		foc.setFile_DateTime(upload_date);
@@ -213,16 +214,18 @@ public class SourceUploadServlet extends HttpServlet {
 		// System.out.println(foc.getFile_DateTime());
 		// System.out.println(foc.getFileComment());
 		// 上传到数据库
+		
 		UploadService service = new UploadService();
 		// 上传课程到数据库
 		// service.UploadCource(course);
 		SearchService ss = new SearchService();
 		// 假设数据库已有课程，获取其COURSE_ID,并将其设为fileofcourse联系course的外键
-		course = ss.getCourse(course_name, course_term);
-		int course_id = course.getCourse_ID();
+		//course = ss.getCourse(course_name, course_term);
+		//int course_id = course.getCourse_ID();
 		// System.out.println("course_id:"+course_id);
-		foc.setCourse_id(course_id);
+		foc.setCourse_id(-1);
 		service.UploadFile(foc);
+		
 	}
 
 	/**

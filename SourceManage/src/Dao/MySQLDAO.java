@@ -1,9 +1,9 @@
 /**    
 * @Title: BaseDAO.java  
 * @Package Dao  
-* @Description: TODO(ÓÃÒ»¾ä»°ÃèÊö¸ÃÎÄ¼þ×öÊ²Ã´)  
+* @Description: TODO(ï¿½ï¿½Ò»ï¿½ä»°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê²Ã´)  
 * @author Siplexy easyforgood@hotmail.com    
-* @date 2015Äê1ÔÂ5ÈÕ ÏÂÎç8:48:02  
+* @date 2015ï¿½ï¿½1ï¿½ï¿½5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½8:48:02  
 * @version V1.0    
 */
 package Dao;
@@ -16,9 +16,9 @@ import java.sql.Statement;
 
 /**  
  * @ClassName: BaseDAO  
- * @Description: TODO(ÊµÏÖDAOµÄÊý¾Ý¿âÁ¬½Ó²¿·Ö)  
+ * @Description: TODO(Êµï¿½ï¿½DAOï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½)  
  * @author Siplexy easyforgood@hotmail.com   
- * @date 2015Äê1ÔÂ5ÈÕ ÏÂÎç8:48:02  
+ * @date 2015ï¿½ï¿½1ï¿½ï¿½5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½8:48:02  
  *    
  */
 public class MySQLDAO implements DAO{
@@ -30,7 +30,7 @@ public class MySQLDAO implements DAO{
 	String pwd="root";
 	String url="jdbc:mysql://127.0.0.1:3306/cc";
 	Connection conn;
-	/* (·Ç Javadoc) 
+	/* (ï¿½ï¿½ Javadoc) 
 	
 	* <p>Title: openConnection</p> 
 	
@@ -61,7 +61,7 @@ public class MySQLDAO implements DAO{
 		return conn;
 	}
 
-	/* (·Ç Javadoc) 
+	/* (ï¿½ï¿½ Javadoc) 
 	
 	* <p>Title: closeConnection</p> 
 	

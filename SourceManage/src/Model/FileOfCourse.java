@@ -12,7 +12,7 @@ public class FileOfCourse {
 	}
 	/** 
 	
-	 * @param file_id ÒªÉèÖÃµÄ file_id 
+	 * @param file_id Òªï¿½ï¿½ï¿½Ãµï¿½ file_id 
 	
 	 */
 	public void setFile_id(int file_id) {
@@ -28,7 +28,7 @@ public class FileOfCourse {
 	}
 	/** 
 	
-	 * @param file_name ÒªÉèÖÃµÄ file_name 
+	 * @param file_name Òªï¿½ï¿½ï¿½Ãµï¿½ file_name 
 	
 	 */
 	public void setFile_name(String file_name) {
@@ -44,7 +44,7 @@ public class FileOfCourse {
 	}
 	/** 
 	
-	 * @param file_size ÒªÉèÖÃµÄ file_size 
+	 * @param file_size Òªï¿½ï¿½ï¿½Ãµï¿½ file_size 
 	
 	 */
 	public void setFile_size(int file_size) {
@@ -60,7 +60,7 @@ public class FileOfCourse {
 	}
 	/** 
 	
-	 * @param file_path ÒªÉèÖÃµÄ file_path 
+	 * @param file_path Òªï¿½ï¿½ï¿½Ãµï¿½ file_path 
 	
 	 */
 	public void setFile_path(String file_path) {
@@ -76,7 +76,7 @@ public class FileOfCourse {
 	}
 	/** 
 	
-	 * @param file_DateTime ÒªÉèÖÃµÄ file_DateTime 
+	 * @param file_DateTime Òªï¿½ï¿½ï¿½Ãµï¿½ file_DateTime 
 	
 	 */
 	public void setFile_DateTime(String file_DateTime) {
@@ -92,27 +92,11 @@ public class FileOfCourse {
 	}
 	/** 
 	
-	 * @param file_type ÒªÉèÖÃµÄ file_type 
+	 * @param file_type Òªï¿½ï¿½ï¿½Ãµï¿½ file_type 
 	
 	 */
 	public void setFile_type(String file_type) {
 		this.file_type = file_type;
-	}
-	/** 
-	
-	 * @return file_term_year 
-	
-	 */
-	public String getFile_term_year() {
-		return file_term_year;
-	}
-	/** 
-	
-	 * @param file_term_year ÒªÉèÖÃµÄ file_term_year 
-	
-	 */
-	public void setFile_term_year(String file_term_year) {
-		this.file_term_year = file_term_year;
 	}
 	/** 
 	
@@ -124,7 +108,7 @@ public class FileOfCourse {
 	}
 	/** 
 	
-	 * @param filecomment ÒªÉèÖÃµÄ filecomment 
+	 * @param filecomment Òªï¿½ï¿½ï¿½Ãµï¿½ filecomment 
 	
 	 */
 	public void setFilecomment(String filecomment) {
@@ -140,7 +124,7 @@ public class FileOfCourse {
 	}
 	/** 
 	
-	 * @param tag ÒªÉèÖÃµÄ tag 
+	 * @param tag Òªï¿½ï¿½ï¿½Ãµï¿½ tag 
 	
 	 */
 	public void setTag(int tag) {
@@ -156,7 +140,7 @@ public class FileOfCourse {
 	}
 	/** 
 	
-	 * @param course_id ÒªÉèÖÃµÄ course_id 
+	 * @param course_id Òªï¿½ï¿½ï¿½Ãµï¿½ course_id 
 	
 	 */
 	public void setCourse_id(int course_id) {
@@ -167,9 +151,8 @@ public class FileOfCourse {
 	private String file_path;
 	private String file_DateTime;
 	private String file_type;
-	private String file_term_year;
 	private String filecomment;
-	private int tag; // 1´æÔÚ 0É¾³ý
+	private int tag; // 1ï¿½ï¿½ï¿½ï¿½ 0É¾ï¿½ï¿½
 	private int course_id;
 
 

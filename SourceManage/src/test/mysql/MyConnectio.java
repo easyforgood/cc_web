@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-public class MyConnection {
+public class MyConnectio {
 
     private static String driver = "com.mysql.jdbc.Driver";
     private static String url = "jdbc:mysql://127.0.0.1:3306/cc";

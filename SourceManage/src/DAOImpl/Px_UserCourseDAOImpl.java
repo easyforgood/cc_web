@@ -1,9 +1,9 @@
 /**    
 * @Title: Px_UserCourseDAOImpl.java  
 * @Package DAOImpl  
-* @Description: TODO(ÓÃÒ»¾ä»°ÃèÊö¸ÃÎÄ¼þ×öÊ²Ã´)  
+* @Description: TODO(ï¿½ï¿½Ò»ï¿½ä»°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê²Ã´)  
 * @author Siplexy easyforgood@hotmail.com   
-* @date 2015Äê3ÔÂ2ÈÕ ÉÏÎç10:26:14  
+* @date 2015ï¿½ï¿½3ï¿½ï¿½2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½10:26:14  
 * @version V1.0    
 */
 package DAOImpl;
@@ -12,8 +12,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import Dao.DAO;
-import Dao.MySQLDAO;
+import DBAccess.DBAccess;
 import Model.Px_UserCourse;
 
 import com.mysql.jdbc.Statement;
@@ -22,13 +21,12 @@ import com.mysql.jdbc.Statement;
  * @ClassName: Px_UserCourseDAOImpl  
  * @Description: TODO(todowhat)  
  * @author Siplexy easyforgood@hotmail.com
- * @date 2015Äê3ÔÂ2ÈÕ ÉÏÎç10:26:14  
+ * @date 2015ï¿½ï¿½3ï¿½ï¿½2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½10:26:14  
  *    
  */
 public class Px_UserCourseDAOImpl{
-	DAO dao=new MySQLDAO();
 	public ResultSet queryAll(){
-		Connection conn=dao.openConnection();
+		Connection conn=DBAccess.getConnection();
 		
 		ResultSet rs =null;
 		try {
@@ -41,7 +39,7 @@ public class Px_UserCourseDAOImpl{
 		return rs;
 	}
 	public void insert(Px_UserCourse uc){
-		Connection conn=dao.openConnection();
+		Connection conn=DBAccess.getConnection();
 		ResultSet rs=null;
 		try {
 			Statement stmt=(Statement)conn.createStatement();

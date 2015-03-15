@@ -32,13 +32,13 @@ public class UploadDao {
 
 	public void uploadFile(FileOfCourse file, Connection conn)
 			throws SQLException {
-		String sql = "insert into file(File_Name,File_Size,File_Path,File_DateTime,File_Type,File_Term_Year,FileComment,File_Tag,Course_ID)"
-				+ " values (?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into File(File_Name,File_Size,File_Path,File_DateTime,File_Type,FileComment,File_Tag,Course_ID)"
+				+ " values (?,?,?,?,?,?,?,?)";
 
-		
+		System.out.println(sql);
 		
 		// String sql =
-		// "insert into file(File_Name,File_Size,File_Path,File_DateTime,File_Type,File_Term_Year,FileComment,File_Tag)"
+		// "insert into File(File_Name,File_Size,File_Path,File_DateTime,File_Type,File_Term_Year,FileComment,File_Tag)"
 		// + " values (1,2,3,4,5,6,7,8)";
 		ResultSet rs;
 		PreparedStatement pStatement = null;
@@ -49,15 +49,14 @@ public class UploadDao {
 			pStatement.setString(3, file.getFile_path());
 			pStatement.setString(4, file.getFile_DateTime());
 			pStatement.setString(5, file.getFile_type());
-			pStatement.setString(6, file.getFile_term_year());
-			pStatement.setString(7, file.getFilecomment());
-			pStatement.setInt(8, file.getTag());
-			pStatement.setInt(9, file.getCourse_id());
+			pStatement.setString(6, file.getFilecomment());
+			pStatement.setInt(7, file.getTag());
+			pStatement.setInt(8, file.getCourse_id());
 			pStatement.execute();
 			if (pStatement != null)
 				pStatement.close();
 		} catch (SQLException e) {
-			System.out.println("File upload failed !!!!");
+			e.printStackTrace();
 		}
 	}
 }
