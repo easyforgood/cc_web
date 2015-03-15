@@ -9,9 +9,9 @@ import java.sql.Statement;
 public class MyConnection {
 
     private static String driver = "com.mysql.jdbc.Driver";
-    private static String url = "jdbc:mysql://localhost:3306/test";
+    private static String url = "jdbc:mysql://127.0.0.1:3306/cc";
     private static String user = "root";
-    private static String password = "1234";
+    private static String password = "root";
     private static Connection con = null;
     private static Statement st = null;
 

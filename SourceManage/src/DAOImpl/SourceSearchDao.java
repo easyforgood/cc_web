@@ -1,4 +1,4 @@
-package Dao;
+package DAOImpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -99,33 +99,36 @@ public class SourceSearchDao {
 	public ArrayList<FileOfCourse> bynamegetfilelist(String SearchString,
 			Connection conn) {
 		ArrayList<FileOfCourse> list = new ArrayList<FileOfCourse>();
-		String sql = "SELECT * FROM file WHERE File_Name like '%"
-				+ SearchString + "%'";
+		String sql = "SELECT * FROM file ";
 		FileOfCourse file = new FileOfCourse();
 		ResultSet rs;
-		try {
-			PreparedStatement pStatement = conn.prepareStatement(sql);
+		
+			PreparedStatement pStatement;
+			try {
+				pStatement = conn.prepareStatement(sql);
+		
 			// pStatement.setString(1, SearchString);
 			rs = pStatement.executeQuery();
 			while (rs.next()) {
-				if (rs.getInt(9) != 0) {
-					file.setFile_ID(rs.getInt(1));
-					file.setFile_name(rs.getString(2));
-					file.setFile_Size(rs.getInt(3));
-					file.setFile_Path(rs.getString(4));
-					file.setFile_DateTime(rs.getString(5));
-					file.setFile_Type(rs.getString(6));
-					file.setFile_Term_Year(rs.getString(7));
-					file.setFileComment(rs.getInt(8));
-					file.setCourse_ID(rs.getInt(10));
+				if (rs.getInt("file_tag") != 0) {
+					file.setFile_id(rs.getInt("file_id"));
+					file.setFile_name(rs.getString("file_name"));
+					file.setFile_size(rs.getInt("file_size"));
+					file.setFile_path(rs.getString("file_path"));
+					file.setFile_DateTime(rs.getString("file_datetime"));
+					file.setFile_type(rs.getString("file_type"));
+					file.setFile_term_year(rs.getString("file_term_year"));
+					file.setFilecomment(rs.getString("filecomment"));
+					file.setCourse_id(rs.getInt("course_id"));
 					list.add(file);
 				}
 			}
 			if (pStatement != null)
 				pStatement.close();
-		} catch (SQLException e) {
-			System.out.println("search file failed");
-		}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		return list;
 	}
 
@@ -143,9 +146,9 @@ public class SourceSearchDao {
 
 				file.setFile_name(rs.getString(2));
 				file.setFile_DateTime(rs.getString(5));
-				file.setFile_Term_Year(rs.getString(7));
-				file.setFile_ID(rs.getInt(1));
-				file.setCourse_ID(rs.getInt(10));
+				file.setFile_term_year(rs.getString(7));
+				file.setFile_id(rs.getInt(1));
+				file.setCourse_id(rs.getInt(10));
 				// System.out.println(rs.getString(1));
 				// System.out.println(file.getFile_name());
 				// System.out.println(file.getFile_DateTime());
@@ -171,15 +174,15 @@ public class SourceSearchDao {
 			PreparedStatement pStatement = conn.prepareStatement(sql);
 			rs = pStatement.executeQuery();
 			while (rs.next()) {
-				file.setFile_ID(rs.getInt(1));
+				file.setFile_id(rs.getInt(1));
 				file.setFile_name(rs.getString(2));
-				file.setFile_Size(rs.getInt(3));
-				file.setFile_Path(rs.getString(4));
+				file.setFile_size(rs.getInt(3));
+				file.setFile_path(rs.getString(4));
 				file.setFile_DateTime(rs.getString(5));
-				file.setFile_Type(rs.getString(6));
-				file.setFile_Term_Year(rs.getString(7));
-				file.setFileComment(rs.getInt(8));
-				file.setCourse_ID(rs.getInt(10));
+				file.setFile_type(rs.getString(6));
+				file.setFile_term_year(rs.getString(7));
+				file.setFilecomment(rs.getString(8));
+				file.setCourse_id(rs.getInt(10));
 			}
 			if (pStatement != null)
 				pStatement.close();

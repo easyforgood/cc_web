@@ -1,112 +1,176 @@
 package Model;
 
 public class FileOfCourse {
-	private int File_ID;
-	private String File_name;
-	private int File_Size;
-	private String File_Path;
-	private String File_DateTime;
-	private String File_Type;
-	private String File_Term_Year;
-	private int FileComment;
-	private int tag; // 1存在 0删除
-	private int Course_ID;
-
-	public int getFile_ID() {
-		return File_ID;
+	private int file_id;
+	/** 
+	
+	 * @return file_id 
+	
+	 */
+	public int getFile_id() {
+		return file_id;
 	}
-
-	public void setFile_ID(int file_ID) {
-		File_ID = file_ID;
+	/** 
+	
+	 * @param file_id 要设置的 file_id 
+	
+	 */
+	public void setFile_id(int file_id) {
+		this.file_id = file_id;
 	}
-
-	public int getCourse_ID() {
-		return Course_ID;
-	}
-
-	public void setCourse_ID(int course_ID) {
-		Course_ID = course_ID;
-	}
-
-	public FileOfCourse(String file_name, int file_Size, String file_Path,
-			String file_DateTime, String file_Type, String file_Term_Year,
-			int fileComment, int tag) {
-		File_name = file_name;
-		File_Size = file_Size;
-		File_Path = file_Path;
-		File_DateTime = file_DateTime;
-		File_Type = file_Type;
-		File_Term_Year = file_Term_Year;
-		FileComment = fileComment;
-		this.tag = tag;
-	}
-
-	public FileOfCourse() {
-
-	}
-
+	/** 
+	
+	 * @return file_name 
+	
+	 */
 	public String getFile_name() {
-		return File_name;
+		return file_name;
 	}
-
+	/** 
+	
+	 * @param file_name 要设置的 file_name 
+	
+	 */
 	public void setFile_name(String file_name) {
-		File_name = file_name;
+		this.file_name = file_name;
 	}
-
-	public int getFile_Size() {
-		return File_Size;
+	/** 
+	
+	 * @return file_size 
+	
+	 */
+	public int getFile_size() {
+		return file_size;
 	}
-
-	public void setFile_Size(int file_Size) {
-		File_Size = file_Size;
+	/** 
+	
+	 * @param file_size 要设置的 file_size 
+	
+	 */
+	public void setFile_size(int file_size) {
+		this.file_size = file_size;
 	}
-
-	public String getFile_Path() {
-		return File_Path;
+	/** 
+	
+	 * @return file_path 
+	
+	 */
+	public String getFile_path() {
+		return file_path;
 	}
-
-	public void setFile_Path(String file_Path) {
-		File_Path = file_Path;
+	/** 
+	
+	 * @param file_path 要设置的 file_path 
+	
+	 */
+	public void setFile_path(String file_path) {
+		this.file_path = file_path;
 	}
-
+	/** 
+	
+	 * @return file_DateTime 
+	
+	 */
 	public String getFile_DateTime() {
-		return File_DateTime;
+		return file_DateTime;
 	}
-
+	/** 
+	
+	 * @param file_DateTime 要设置的 file_DateTime 
+	
+	 */
 	public void setFile_DateTime(String file_DateTime) {
-		File_DateTime = file_DateTime;
+		this.file_DateTime = file_DateTime;
 	}
-
-	public String getFile_Type() {
-		return File_Type;
+	/** 
+	
+	 * @return file_type 
+	
+	 */
+	public String getFile_type() {
+		return file_type;
 	}
-
-	public void setFile_Type(String file_Type) {
-		File_Type = file_Type;
+	/** 
+	
+	 * @param file_type 要设置的 file_type 
+	
+	 */
+	public void setFile_type(String file_type) {
+		this.file_type = file_type;
 	}
-
-	public String getFile_Term_Year() {
-		return File_Term_Year;
+	/** 
+	
+	 * @return file_term_year 
+	
+	 */
+	public String getFile_term_year() {
+		return file_term_year;
 	}
-
-	public void setFile_Term_Year(String file_Term_Year) {
-		File_Term_Year = file_Term_Year;
+	/** 
+	
+	 * @param file_term_year 要设置的 file_term_year 
+	
+	 */
+	public void setFile_term_year(String file_term_year) {
+		this.file_term_year = file_term_year;
 	}
-
-	public int getFileComment() {
-		return FileComment;
+	/** 
+	
+	 * @return filecomment 
+	
+	 */
+	public String getFilecomment() {
+		return filecomment;
 	}
-
-	public void setFileComment(int fileComment) {
-		FileComment = fileComment;
+	/** 
+	
+	 * @param filecomment 要设置的 filecomment 
+	
+	 */
+	public void setFilecomment(String filecomment) {
+		this.filecomment = filecomment;
 	}
-
+	/** 
+	
+	 * @return tag 
+	
+	 */
 	public int getTag() {
 		return tag;
 	}
-
+	/** 
+	
+	 * @param tag 要设置的 tag 
+	
+	 */
 	public void setTag(int tag) {
 		this.tag = tag;
 	}
+	/** 
+	
+	 * @return course_id 
+	
+	 */
+	public int getCourse_id() {
+		return course_id;
+	}
+	/** 
+	
+	 * @param course_id 要设置的 course_id 
+	
+	 */
+	public void setCourse_id(int course_id) {
+		this.course_id = course_id;
+	}
+	private String file_name;
+	private int file_size;
+	private String file_path;
+	private String file_DateTime;
+	private String file_type;
+	private String file_term_year;
+	private String filecomment;
+	private int tag; // 1存在 0删除
+	private int course_id;
+
 
 }

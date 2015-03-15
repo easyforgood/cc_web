@@ -56,7 +56,16 @@
 
 <!-- BEGIN BODY -->
 
-<body class="page-header-fixed">
+	<!-- END HEADER -->
+
+	<!-- BEGIN CONTAINER -->
+
+	
+		<!-- BEGIN PAGE -->  
+
+		
+
+			<div class="container-fluid" style="background-color:#ffffff">
 
 				<!-- BEGIN PAGE HEADER-->   
 
@@ -278,45 +287,18 @@
 
 												<div class="control-group">
 
-													<label class="control-label">Email<span class="required">*</span></label>
+													<label class="control-label">authority<span class="required">*</span></label>
 
 													<div class="controls">
 
-														<input type="text" class="span6 m-wrap" name="email"/>
+														<input type="checkbox" name="authority" class="span6 m-wrap" value="0"/>超级管理员<br />
+														<input type="checkbox" name="authority" class="span6 m-wrap" value="1"/>普通管理员
 
-														<span class="help-inline">Provide your email address</span>
-
+														
 													</div>
 
 												</div>
-												<div class="control-group">
-
-													<label class="control-label">nick_name<span class="required">*</span></label>
-
-													<div class="controls">
-
-														<input type="text" class="span6 m-wrap" name="nick_name"/>
-
-														<span class="help-inline">Provide your username</span>
-
-													</div>
-
-												</div>
-
-												<div class="control-group">
-
-													<label class="control-label">rank_name<span class="required">*</span></label>
-
-													<div class="controls">
-
-														<input type="text" class="span6 m-wrap" name="rank_name"/>
-
-														<span class="help-inline">Provide your username</span>
-
-													</div>
-
-												</div>
-
+												
 											</div>
 
 
@@ -346,7 +328,19 @@
 
 				<!-- END PAGE CONTENT-->         
 
-	<!-- END FOOTER -->
+			</div>
+
+			<!-- END PAGE CONTAINER-->
+
+		</div>
+
+		<!-- END PAGE -->  
+
+	</div>
+
+	<!-- END CONTAINER -->
+
+
 
 	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 
@@ -398,7 +392,7 @@
 
 	<script src="media/js/app.js"></script>
 
-	<script src="media/js/form-wizard.js"></script>     
+	<script src="media/js/admin-form-wizard.js"></script>     
 
 	<!-- END PAGE LEVEL SCRIPTS -->
 

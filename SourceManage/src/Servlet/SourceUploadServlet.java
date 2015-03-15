@@ -197,13 +197,13 @@ public class SourceUploadServlet extends HttpServlet {
 		// 课程文件设置
 		FileOfCourse foc = new FileOfCourse();
 		foc.setFile_name(file.getFileName());
-		foc.setFile_Type(file.getFileExt());
-		foc.setFile_Path(filePath);
-		foc.setFile_Term_Year(file_term);
-		foc.setFile_Size(file_size);
+		foc.setFile_type(file.getFileExt());
+		foc.setFile_path(filePath);
+		foc.setFile_term_year(file_term);
+		foc.setFile_size(file_size);
 		foc.setTag(1);
 		foc.setFile_DateTime(upload_date);
-		foc.setFileComment(0);
+		foc.setFilecomment("klaka");
 		// System.out.println(foc.getFile_name());
 		// System.out.println(foc.getFile_Type());
 		// System.out.println(foc.getFile_Path());
@@ -221,7 +221,7 @@ public class SourceUploadServlet extends HttpServlet {
 		course = ss.getCourse(course_name, course_term);
 		int course_id = course.getCourse_ID();
 		// System.out.println("course_id:"+course_id);
-		foc.setCourse_ID(course_id);
+		foc.setCourse_id(course_id);
 		service.UploadFile(foc);
 	}
 
